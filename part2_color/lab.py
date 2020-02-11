@@ -405,49 +405,98 @@ if __name__ == '__main__':
     # generating images, etc.
 
     # color filter, converted from greyscale filter
-    im = load_color_image('test_images/cat.png')
-    save_color_image(color_inverted(im), 'test_my/cat-color-inverted.png')
+    # im = load_color_image('test_images/frog.png')
+    # save_color_image(color_inverted(im), 'test_my/frog-color-inverted.png')
+
+    # im = load_color_image('test_images/tree.png')
+    # save_color_image(color_inverted(im), 'test_my/tree-color-inverted.png')
+
+    ## BLURRED IMAGES
+    # im = load_color_image('test_images/bluegill.png')
+    # im = color_filter_from_greyscale_filter(make_blur_filter(7))(im)
+    # save_color_image(im, 'test_my/bluegill-blurred-9.png')
+
+    # im = load_color_image('test_images/python.png')
+    # im = color_filter_from_greyscale_filter(make_blur_filter(9))(im)
+    # save_color_image(im, 'test_my/python-blurred-9.png')
+
+    # im = load_color_image('test_images/frog.png')
+    # im = color_filter_from_greyscale_filter(make_blur_filter(15))(im)
+    # save_color_image(im, 'test_my/frog-blurred-9.png')
+
+    ## SHARPEN
+    # im = load_color_image('test_images/mushroom.png')
+    # im = color_filter_from_greyscale_filter(make_sharpen_filter(17))(im)
+    # save_color_image(im, 'test_my/mushroom-sharpened-9.png')
+
+    # im = load_color_image('test_images/chess.png')
+    # im = color_filter_from_greyscale_filter(make_sharpen_filter(13))(im)
+    # save_color_image(im, 'test_my/chess-sharpened-13.png')
+
+    # im = load_color_image('test_images/chess.png')
+    # im = color_filter_from_greyscale_filter(edges)(im)
+    # save_color_image(im, 'test_my/chess-edges.png')
+
+    # im = load_color_image('test_images/tree.png')
+    # im = color_filter_from_greyscale_filter(edges)(im)
+    # save_color_image(im, 'test_my/tree-edges.png')
+
+    # # images resulted from using a cascaded filter (color, or greyscale only, cant be mixed)
+    # filter1 = color_filter_from_greyscale_filter(edges)
+    # filter2 = color_filter_from_greyscale_filter(make_blur_filter(5))
+    # filt = filter_cascade([filter1, filter1, filter2, filter1])
+    # im = load_color_image('test_images/frog.png')
+    # save_color_image(filt(im), 'test_my/frog-cascaded.png')
+
+    filter1 = color_filter_from_greyscale_filter(edges)
+    filter2 = color_filter_from_greyscale_filter(greyscale_vignette)
+    im = load_color_image('test_images/pigbird.png')
+    filters = filter_cascade([filter1, filter2])
+    save_color_image(filters(im), 'test_my/pigbird-cascaded1.png')
+
+    # filter1 = color_filter_from_greyscale_filter(make_sharpen_filter(9))
+    # filter2 = color_filter_from_greyscale_filter(greyscale_vignette)
+    # im = load_color_image('test_images/pigbird.png')
+    # filters = filter_cascade([filter1, filter2, filter1, filter1])
+    # save_color_image(filters(im), 'test_my/pigbird-cascaded2.png')
+
+    # # greyscale and color images are separated, i.e. supported by their respective functions
+    # # to use a greyscale_filter on a color image, first convert it to a color_filter
+    # # using color_filter_from_greyscale_filter
+    # filter1 = edges
+    # filter2 = make_blur_filter(5)
+    # filt = filter_cascade([filter1, filter1, filter2, filter1])
+    # im = load_greyscale_image('test_images/frog.png')
+    # save_greyscale_image(filt(im), 'test_my/frog-cascaded-greyfilters.png')
+
+    # # some seam carving images
+    # im = load_color_image('test_images/twocats.png')
+    # save_color_image(seam_carving(im,100), 'test_my/twocats-seamcarved100.png')
+
+    # im = load_color_image('test_images/chess.png')
+    # save_color_image(seam_carving(im,100), 'test_my/chess-seamcarved100.png')
+
+    # im = load_color_image('test_images/tree.png')
+    # save_color_image(seam_carving(im,80), 'test_my/tree-seamcarved80.png')
 
     im = load_color_image('test_images/python.png')
-    im = color_filter_from_greyscale_filter(make_blur_filter(9))(im)
-    save_color_image(im, 'test_my/python-blurred-9.png')
+    save_color_image(seam_carving(im,90), 'test_my/python-seamcarved90.png')
 
-    im = load_color_image('test_images/sparrowchick.png')
-    im = color_filter_from_greyscale_filter(make_sharpen_filter(7))(im)
-    save_color_image(im, 'test_my/sparrowchick-sharpened-9.png')
+    # im = load_color_image('test_images/mushroom.png')
+    # save_color_image(seam_carving(im,70), 'test_my/mushroom-seamcarved70.png')
 
-    # images resulted from using a cascaded filter (color, or greyscale only, cant be mixed)
-    filter1 = color_filter_from_greyscale_filter(edges)
-    filter2 = color_filter_from_greyscale_filter(make_blur_filter(5))
-    filt = filter_cascade([filter1, filter1, filter2, filter1])
-    im = load_color_image('test_images/frog.png')
-    save_color_image(filt(im), 'test_my/frog-cascaded.png')
+    # # vignette 
+    # im = load_greyscale_image('test_images/pp.jpeg')
+    # save_greyscale_image(greyscale_vignette(im), 'test_my/pp-vignette.jpeg')
 
-    # greyscale and color images are separated, i.e. supported by their respective functions
-    # to use a greyscale_filter on a color image, first convert it to a color_filter
-    # using color_filter_from_greyscale_filter
-    filter1 = edges
-    filter2 = make_blur_filter(5)
-    filt = filter_cascade([filter1, filter1, filter2, filter1])
-    im = load_greyscale_image('test_images/frog.png')
-    save_greyscale_image(filt(im), 'test_my/frog-cascaded-greyfilters.png')
+    # im = load_color_image('test_images/pp.jpeg')
+    # save_color_image(color_filter_from_greyscale_filter(greyscale_vignette)(im), 'test_my/pp-color-vignette.jpeg')
 
-    # some seam carving images
-    im = load_color_image('test_images/twocats.png')
-    save_color_image(seam_carving(im,100), 'test_my/twocats-seamcarved100.png')
+    # im = load_color_image('test_images/cat.png')
+    # save_color_image(color_filter_from_greyscale_filter(greyscale_vignette)(im), 'test_my/cat-vignette.png')
 
-    # vignette 
-    im = load_greyscale_image('test_images/pp.jpeg')
-    save_greyscale_image(greyscale_vignette(im), 'test_my/pp-vignette.jpeg')
+    # im = load_color_image('test_images/mushroom.png')
+    # save_color_image(color_filter_from_greyscale_filter(greyscale_vignette)(im), 'test_my/mushroom-vignette.png')
 
-    im = load_color_image('test_images/pp.jpeg')
-    save_color_image(color_filter_from_greyscale_filter(greyscale_vignette)(im), 'test_my/pp-color-vignette.jpeg')
-
-    im = load_color_image('test_images/cat.png')
-    save_color_image(color_filter_from_greyscale_filter(greyscale_vignette)(im), 'test_my/cat-vignette.png')
-
-    im = load_color_image('test_images/mushroom.png')
-    save_color_image(color_filter_from_greyscale_filter(greyscale_vignette)(im), 'test_my/mushroom-vignette.png')
-
-    im = load_color_image('test_images/chess.png')
-    save_color_image(color_filter_from_greyscale_filter(greyscale_vignette)(im), 'test_my/chess-vignette.png')
+    # im = load_color_image('test_images/chess.png')
+    # save_color_image(color_filter_from_greyscale_filter(greyscale_vignette)(im), 'test_my/chess-vignette.png')
