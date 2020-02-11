@@ -25,10 +25,10 @@
 
 * //TODO seam filling - smart resizing to increase the size of an image by inserting appropriate rows at low-energy regions in the image.
 
-### And it's show time:
+### And it's show time: (find more in /show)
 
-![penguin original](show/penguin.png)
-![penguin-inverted](show/penguin-inverted.png)
+![penguin original](result1.png)
+![penguin-inverted](result2.png)
 
 
 
