@@ -21,14 +21,14 @@
 
 * def seam_carving - content-aware resizing i.e. retargeting (such a dope technique)
 
-* def vignette: apply Gaussian Kernel (~cv2 getGaussianKernel, and compute Frobenius matrix norm~ numpy.linalg.norm).
+* def vignette: apply Gaussian Kernel (similar to cv2.getGaussianKernel(), and compute Frobenius matrix norm, similar to numpy.linalg.norm()).
 
 * //TODO seam filling - smart resizing to increase the size of an image by inserting appropriate rows at low-energy regions in the image.
 
 ### And it's show time: (find more in /show)
 
-![penguin original](result1.png)
-![penguin-inverted](result2.png)
+![resultpart1](result1.png)
+![resultpart1](result2.png)
 
 
 
