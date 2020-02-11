@@ -1,6 +1,6 @@
 # image_manipulation with python and Pillow
 
-## Part 1 -  greyscale image manipulation. Wow factor: sharpened/unsharp mask, and edges (a Sobel operator)
+## Part 1 -  start with: greyscale image manipulations. Wow factor: sharpened/unsharp mask, and edges (a Sobel operator)
 
 * def correlate(image, kernel): Image Filtering via Correlation
 
@@ -13,7 +13,7 @@
 * def edges(image): Sobel operator, a neat (super cool!) filter, uses for detecting edges in images.
 
 
-## Part 2 - color image manipulation, making use of functional programming. Wow factor: filter_cascade, seam_carving, vignette.
+## Part 2 - from greyscale to color image manipulatios, making use of functional programming. Wow factor: filter_cascade, seam_carving, vignette.
 
 * def color_filter_from_greyscale_filter - convert greyscale_filters implemented so far into color_filters that work on color images
 
