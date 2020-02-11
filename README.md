@@ -25,7 +25,7 @@
 
 * //TODO seam filling - smart resizing to increase the size of an image by inserting appropriate rows at low-energy regions in the image.
 
-### And it's show time: (find more in /show)
+### And it's show time: (find more in ./show)
 
 ![resultpart1](result1.png)
 ![resultpart1](result2.png)
